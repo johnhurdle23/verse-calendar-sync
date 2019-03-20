@@ -1,0 +1,32 @@
+{
+  "name": "Verse to Google Calendar Sync",
+  "version": "0.1.4",
+  "key":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo3UmruoDmTKXriT4fwInSqJ+jcd5kMsffasWqL5DZ0O+Ias61gp4Z+NIcwtFi+JsFUE+iekFEIsNoqI8BNzLwuiZN1BXMCXci+Nz+9zf7/b9ulp8pJqUxYwLMEHq0KhRVDB5zHWv6R/ouuGCquYXxMURyxhih+/skZ+JG0PxZtz2ayHEInh6/kvwQMPUBe9RKbso1gHOM8BzhiNEU3lcnIPio8DbaAtpKY8dS/kBH1YlJ3zzPwSOMMvoRFoyackoR9w+/ZDGqkTj0zewcPrJgEKb+Pi19jr0WfMJFJMJXSe37EQ0J27g1mho/TQ4ZpvxENCB1Yr9etYDyNqy9I34cwIDAQAB",
+  "manifest_version": 2,
+  "description": "Synchronise IBM Verse calendar events to Google calendar",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "background": {
+    "scripts": [
+      "src/common.js",
+      "src/luxon.min.js",
+      "src/background/google-api.js",
+      "src/background/verse-api.js",
+      "src/background/background.js"
+    ],
+    "persistent": true
+  },
+  "options_ui": {
+    "page": "src/options_ui/options.html",
+    "chrome_style": true
+  },
+  "content_security_policy": "script-src 'self' https://apis.google.com; object-src 'self'",
+  "permissions": ["identity", "storage", "*://*/*", "https://mail.notes.na.collabserv.com"],
+  "oauth2": {
+    "client_id": "72845829902-kne907dqsmcpftjuul97nu91skc8tspb.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/calendar"]
+  }
+}
